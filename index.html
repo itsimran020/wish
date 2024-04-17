@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="monkey-smiling-meme-25.png" alt="" />
+      <h1>Enter The Password, to visit tha website</h1>
+      <p id="hint"><b>Hint - </b>That special date <i>(dd/mm/yy)</i></p>
+      <input type="text" placeholder="Password" />
+      <p id="p"></p>
+      <button id="loginBtn">Log In</button>
+    </div>
+  </body>
+  <script>
+    let Password = "20012021";
+    let Password2 = "20/01/2021";
+    let input = document.querySelector("input");
+    let btn = document.querySelector("#loginBtn");
+    let p = document.querySelector("#p");
+    let img = document.querySelector("img");
+
+    input.addEventListener("click", () => {
+      img.src = "unseen-removebg-preview.png";
+    });
+
+    btn.addEventListener("click", checkPassword);
+
+    // Add event listener for Enter key press
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+    });
+
+    function checkPassword() {
+      if (input.value == Password || input.value == Password2) {
+        window.location.href = "video-page.html";
+        input.value = "";
+      } else if (input.value == "") {
+        p.innerText = "Please enter the password....";
+      } else {
+        input.style.color = "red";
+        p.innerHTML = "Wrong password!!";
+        input.value = "";
+        img.src = "Surprise-Animals-Wallpaper-removebg.png";
+        input.style.color = "red";
+      }
+    }
+  </script>
+</html>
